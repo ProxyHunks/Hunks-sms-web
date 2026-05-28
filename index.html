@@ -1204,10 +1204,211 @@ footer {
     <a href="#download">Download</a>
     <a href="https://t.me/eduh356">Telegram Support</a>
     <a href="mailto:edwardgikara85@gmail.com">Email</a>
+    <a href="#" onclick="openModal('privacy'); return false;">Privacy Policy</a>
+    <a href="#" onclick="openModal('terms'); return false;">Terms &amp; Conditions</a>
   </div>
-  <div class="f-copy">2026 PROXYHUNKS</div>
+  <div class="f-copy">2026 PROXYHUNKS · <a href="#" onclick="openModal('privacy'); return false;" style="color:var(--ash);text-decoration:none;">Privacy</a> · <a href="#" onclick="openModal('terms'); return false;" style="color:var(--ash);text-decoration:none;">Terms</a></div>
 </footer>
-
+ 
+<!-- ── PRIVACY POLICY MODAL ── -->
+<div class="modal-overlay" id="modal-privacy" onclick="closeModal('privacy')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <div class="modal-label">Legal</div>
+        <h2 class="modal-title">PRIVACY POLICY</h2>
+      </div>
+      <button class="modal-close" onclick="closeModal('privacy')">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-date">Last updated: January 1, 2026</div>
+ 
+      <div class="modal-section">
+        <h3>1. Information We Collect</h3>
+        <p>When you use Hunks SMS, we collect only what is necessary to provide the service:</p>
+        <ul>
+          <li><strong>Account information</strong> — your username or Telegram ID used to authenticate with the service.</li>
+          <li><strong>Transaction data</strong> — records of number purchases, wallet top-ups, and refunds for accounting and dispute resolution.</li>
+          <li><strong>Device information</strong> — basic device type and OS version to ensure app compatibility.</li>
+          <li><strong>Usage logs</strong> — service requests and API calls for debugging and fraud prevention. Logs are retained for a maximum of 30 days.</li>
+        </ul>
+        <p>We do <strong>not</strong> collect your personal phone number, national ID, passport, or any government-issued identification.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>2. How We Use Your Information</h3>
+        <p>We use collected data solely to:</p>
+        <ul>
+          <li>Deliver virtual numbers and SMS verification codes you have purchased.</li>
+          <li>Process M-Pesa payments and issue automatic refunds where applicable.</li>
+          <li>Prevent fraud, abuse, and unauthorised access to the platform.</li>
+          <li>Respond to support requests submitted via Telegram or email.</li>
+          <li>Improve service reliability and fix bugs.</li>
+        </ul>
+        <p>We do <strong>not</strong> sell, rent, or share your personal information with third parties for marketing purposes.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>3. Payment Data</h3>
+        <p>M-Pesa transactions are processed directly through Safaricom's STK Push infrastructure. We do not store your M-Pesa PIN, full phone number beyond what is required for the STK push, or any bank card details. Payment confirmation data is stored securely and used only for wallet credit and refund processing.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>4. Virtual Numbers &amp; SMS Data</h3>
+        <p>Virtual numbers assigned to your account are temporary. Incoming SMS messages are relayed to you in real time and are not stored on our servers beyond a 20-minute window required for delivery confirmation. After that window, message content is permanently deleted.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>5. Data Security</h3>
+        <p>We implement industry-standard security measures including encrypted data transmission (HTTPS/TLS), secure cloud storage with access controls, and regular security audits. However, no system is 100% secure. You are responsible for keeping your account credentials confidential.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>6. Third-Party Services</h3>
+        <p>Hunks SMS integrates with third-party providers to deliver the service, including SMS gateway providers, Safaricom M-Pesa, and Firebase (Google) for backend infrastructure. Each of these providers operates under their own privacy policies. We only share the minimum data required for service delivery.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>7. Your Rights</h3>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Request a copy of personal data we hold about you.</li>
+          <li>Request deletion of your account and associated data.</li>
+          <li>Opt out of any non-essential communications.</li>
+        </ul>
+        <p>To exercise these rights, contact us at <a href="mailto:edwardgikara85@gmail.com">edwardgikara85@gmail.com</a> or via <a href="https://t.me/eduh356" target="_blank">Telegram @eduh356</a>.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>8. Cookies &amp; Tracking</h3>
+        <p>Our website uses no third-party tracking cookies or advertising trackers. We use minimal session data only to support navigation on this page. The mobile app does not use advertising SDKs.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>9. Children's Privacy</h3>
+        <p>Hunks SMS is not intended for users under the age of 18. We do not knowingly collect data from minors. If you believe a minor has used our service, please contact us immediately.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>10. Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. Significant changes will be announced via our Telegram support channel. Continued use of the service after changes constitutes acceptance of the updated policy.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>11. Contact</h3>
+        <p>Questions about this Privacy Policy? Reach us at:<br>
+        📧 <a href="mailto:edwardgikara85@gmail.com">edwardgikara85@gmail.com</a><br>
+        💬 <a href="https://t.me/eduh356" target="_blank">Telegram: @eduh356</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ── TERMS & CONDITIONS MODAL ── -->
+<div class="modal-overlay" id="modal-terms" onclick="closeModal('terms')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <div class="modal-label">Legal</div>
+        <h2 class="modal-title">TERMS &amp; CONDITIONS</h2>
+      </div>
+      <button class="modal-close" onclick="closeModal('terms')">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-date">Last updated: January 1, 2026</div>
+ 
+      <div class="modal-section">
+        <h3>1. Acceptance of Terms</h3>
+        <p>By downloading, installing, or using the Hunks SMS application or website, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, do not use the service.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>2. Description of Service</h3>
+        <p>Hunks SMS provides temporary virtual phone numbers from various countries for the purpose of receiving SMS verification codes on third-party platforms. The service is provided on a pay-per-use basis via in-app wallet credits.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>3. Eligibility</h3>
+        <p>You must be at least 18 years of age to use this service. By using Hunks SMS, you represent and warrant that you meet this requirement and that you are using the service in compliance with all applicable laws in your jurisdiction.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>4. Acceptable Use</h3>
+        <p>You agree to use Hunks SMS only for lawful purposes. The following activities are strictly prohibited:</p>
+        <ul>
+          <li>Using virtual numbers to commit fraud, identity theft, or impersonation.</li>
+          <li>Registering accounts on platforms in violation of those platforms' terms of service at scale.</li>
+          <li>Using the service for spamming, phishing, or any form of harassment.</li>
+          <li>Attempting to reverse engineer, hack, or disrupt the platform.</li>
+          <li>Reselling access to the service without prior written authorisation.</li>
+          <li>Using the service for any illegal activity under Kenyan law or applicable international law.</li>
+        </ul>
+        <p>Violation of these terms may result in immediate account suspension without refund.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>5. Wallet &amp; Payments</h3>
+        <p>Wallet credits are purchased via M-Pesa and are non-transferable between accounts. Credits do not expire but hold no cash value and cannot be withdrawn or converted back to cash except in cases of account closure at our sole discretion.</p>
+        <p>All prices are displayed in USD equivalent. M-Pesa charges apply at the prevailing Safaricom rate and are not controlled by Hunks SMS.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>6. Refund Policy</h3>
+        <p>If a virtual number you have purchased does not receive any SMS code within 20 minutes of activation, an automatic refund of the purchase amount is credited to your wallet. This is our guarantee.</p>
+        <p>Refunds are <strong>not</strong> issued in the following circumstances:</p>
+        <ul>
+          <li>You entered the virtual number incorrectly on the target platform.</li>
+          <li>The target platform rejected or blocked the number for reasons outside our control.</li>
+          <li>An SMS was successfully delivered but you claim not to have seen it.</li>
+          <li>Wallet top-up errors caused by incorrect M-Pesa details entered by the user.</li>
+        </ul>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>7. Service Availability</h3>
+        <p>We strive for maximum uptime but do not guarantee uninterrupted service. Number availability depends on third-party SMS providers and may vary by country and service. We are not liable for delays or unavailability caused by upstream provider issues.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>8. Intellectual Property</h3>
+        <p>All content on this website and within the Hunks SMS application — including the logo, design, code, and branding — is the intellectual property of Hunks SMS. You may not copy, reproduce, or distribute any part of it without prior written permission.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>9. Limitation of Liability</h3>
+        <p>To the maximum extent permitted by law, Hunks SMS shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities, arising out of your use of or inability to use the service.</p>
+        <p>Our total liability to you for any claim arising from these terms or your use of the service shall not exceed the amount you paid for the specific transaction giving rise to the claim.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>10. Disclaimer of Warranties</h3>
+        <p>The service is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>11. Governing Law</h3>
+        <p>These Terms and Conditions are governed by and construed in accordance with the laws of the Republic of Kenya. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the Kenyan courts.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>12. Changes to Terms</h3>
+        <p>We reserve the right to modify these Terms at any time. We will notify users of significant changes via our Telegram support channel. Your continued use of the service after the effective date of any changes constitutes your acceptance of the revised Terms.</p>
+      </div>
+ 
+      <div class="modal-section">
+        <h3>13. Contact</h3>
+        <p>For questions regarding these Terms and Conditions:<br>
+        📧 <a href="mailto:edwardgikara85@gmail.com">edwardgikara85@gmail.com</a><br>
+        💬 <a href="https://t.me/eduh356" target="_blank">Telegram: @eduh356</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
 <script>
 // ── PHONE ANIMATION ENGINE ────────────────────────────
 const scenarios = [
@@ -1226,23 +1427,23 @@ const scenarios = [
     resetCode: '— — —', resetStatus: 'WAITING', resetClass: 's-wait',
   },
 ];
-
+ 
 let currentScenario = 0;
 let cycleTimer = null;
-
+ 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
+ 
 function setStatus(el, text, cls) {
   el.textContent = text;
   el.className = 'p-status ' + cls;
 }
-
+ 
 async function typeCode(codeEl, cursorEl, targetCode) {
   const chars = targetCode.split('');
   cursorEl.classList.add('blink');
   codeEl.textContent = '';
   codeEl.classList.add('code-typing');
-
+ 
   for (let i = 0; i < chars.length; i++) {
     codeEl.textContent += chars[i];
     await sleep(90 + Math.random() * 60);
@@ -1251,14 +1452,14 @@ async function typeCode(codeEl, cursorEl, targetCode) {
   cursorEl.classList.remove('blink');
   cursorEl.style.opacity = '0';
 }
-
+ 
 async function flashScreen() {
   const flash = document.getElementById('screenFlash');
   flash.classList.add('flash');
   await sleep(300);
   flash.classList.remove('flash');
 }
-
+ 
 async function showPopup(title, body) {
   const popup = document.getElementById('smsPopup');
   document.getElementById('popupTitle').textContent = title;
@@ -1267,23 +1468,23 @@ async function showPopup(title, body) {
   await sleep(3200);
   popup.classList.remove('show');
 }
-
+ 
 async function runScenario(s) {
   const card    = document.getElementById(s.cardId);
   const statusEl = document.getElementById(s.statusId);
   const codeEl   = document.getElementById(s.codeId);
   const cursorEl = document.getElementById(s.cursorId);
-
+ 
   // Phase 1: scanning
   card.classList.add('card-active');
   setStatus(statusEl, 'SCANNING', 's-scan');
   await sleep(1400);
-
+ 
   // Phase 2: type the code
   codeEl.textContent = '';
   cursorEl.style.opacity = '1';
   await typeCode(codeEl, cursorEl, s.code);
-
+ 
   // Phase 3: mark as received + flash
   codeEl.classList.remove('code-typing');
   codeEl.classList.add('code-success');
@@ -1291,22 +1492,22 @@ async function runScenario(s) {
   card.classList.remove('card-active');
   card.classList.add('card-success');
   await flashScreen();
-
+ 
   // Phase 4: show popup
   showPopup(s.popupTitle, s.popupBody); // fire and forget
-
+ 
   await sleep(4500);
-
+ 
   // Phase 5: reset card back to waiting
   codeEl.textContent = s.resetCode;
   codeEl.classList.remove('code-success');
   cursorEl.style.opacity = '0';
   setStatus(statusEl, s.resetStatus, s.resetClass);
   card.classList.remove('card-success');
-
+ 
   await sleep(1200);
 }
-
+ 
 async function animationLoop() {
   while (true) {
     await sleep(2200); // initial pause
@@ -1316,12 +1517,12 @@ async function animationLoop() {
     await sleep(1600); // gap between cycles
   }
 }
-
+ 
 // Start animation after page loads
 window.addEventListener('load', () => {
   animationLoop();
 });
-
+ 
 // ── SCROLL REVEAL ───────────────────────────────────
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1331,9 +1532,9 @@ const obs = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-
+ 
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
+ 
 // Stagger children
 document.querySelectorAll('.steps-grid, .feat-grid, .numbers').forEach(grid => {
   const children = grid.querySelectorAll('.s-step, .feat, .n-block');
@@ -1343,7 +1544,7 @@ document.querySelectorAll('.steps-grid, .feat-grid, .numbers').forEach(grid => {
     child.style.transform = 'translateY(16px)';
     child.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background 0.25s';
   });
-
+ 
   const gridObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1355,9 +1556,35 @@ document.querySelectorAll('.steps-grid, .feat-grid, .numbers').forEach(grid => {
       }
     });
   }, { threshold: 0.05 });
-
+ 
   gridObs.observe(grid);
+});
+ 
+// ── MODAL ENGINE ────────────────────────────────────
+function openModal(type) {
+  const el = document.getElementById('modal-' + type);
+  if (el) {
+    el.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeModal(type) {
+  const el = document.getElementById('modal-' + type);
+  if (el) {
+    el.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal('privacy');
+    closeModal('terms');
+  }
 });
 </script>
 </body>
 </html>
+ 
+
+
