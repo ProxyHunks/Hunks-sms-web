@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://vnumbers.proxyhunks.xyz/sitemap.xml
+
+# Block nothing — let Google crawl everything
+Disallow:
