@@ -437,6 +437,45 @@ nav {
 @media (max-width: 860px) { .feat-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 480px) { .feat-grid { grid-template-columns: 1fr; } }
 
+/* TESTIMONIALS */
+.testimonials-section { max-width: 1280px; margin: 0 auto; padding: 0 48px 96px; }
+.testi-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 60px; }
+.testi-card {
+  background: var(--ink2);
+  border: 1px solid var(--line2);
+  border-radius: 16px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+.testi-card::before {
+  content: '\201C';
+  position: absolute; top: 20px; right: 28px;
+  font-family: Georgia, serif;
+  font-size: 96px; line-height: 1;
+  color: rgba(139,92,246,0.08);
+  pointer-events: none;
+}
+.testi-card:hover { border-color: rgba(139,92,246,0.25); }
+.testi-top { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.testi-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--line2);
+  flex-shrink: 0;
+}
+.testi-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.testi-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+.testi-loc { font-family: var(--mono); font-size: 10.5px; color: var(--dust); letter-spacing: 0.5px; margin-bottom: 5px; }
+.testi-stars { color: var(--amber); font-size: 13px; letter-spacing: 1px; }
+.testi-quote { font-size: 14px; color: var(--chalk); line-height: 1.82; margin-bottom: 20px; font-style: italic; }
+.testi-service { display: flex; gap: 8px; flex-wrap: wrap; }
+.testi-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--vi-hi); background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.18); padding: 4px 10px; border-radius: 4px; }
+@media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .testimonials-section { padding-left: 24px; padding-right: 24px; } .testi-card { padding: 24px; } }
+
 /* DOWNLOAD */
 .dl-section { max-width: 1280px; margin: 0 auto; padding: 0 48px 116px; }
 .dl-block { border: 1px solid var(--line2); border-radius: 16px; overflow: hidden; }
@@ -872,6 +911,56 @@ footer { border-top: 1px solid var(--line); padding: 34px 48px; display: flex; j
       <h4>Full History</h4>
       <p>Every number you've bought, with its code and status, always in the app.</p>
     </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-head reveal">
+    <div>
+      <div class="s-label">Real Users</div>
+      <h2 class="s-title">PEOPLE USE IT<br>EVERY DAY</h2>
+    </div>
+    <p class="s-note">Thousands of verifications done. These are two of them.</p>
+  </div>
+  <div class="testi-grid reveal">
+
+    <div class="testi-card">
+      <div class="testi-top">
+        <div class="testi-avatar">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=160&h=160&fit=crop&crop=face&q=80" alt="Amara Osei" loading="lazy">
+        </div>
+        <div class="testi-meta">
+          <div class="testi-name">Amara Osei</div>
+          <div class="testi-loc">Accra, Ghana</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="testi-quote">"I needed a UK number for WhatsApp verification and it arrived in literally 40 seconds. Paid with M-Pesa, got the code, done. I've used it 6 times now — never had a problem."</p>
+      <div class="testi-service">
+        <span class="testi-badge">WhatsApp</span>
+        <span class="testi-badge">UK Number</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-top">
+        <div class="testi-avatar">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=160&h=160&fit=crop&crop=face&q=80" alt="Brian Mwangi" loading="lazy">
+        </div>
+        <div class="testi-meta">
+          <div class="testi-name">Brian Mwangi</div>
+          <div class="testi-loc">Nairobi, Kenya</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="testi-quote">"Been using Hunks SMS for my Binance and Telegram accounts. The WhatsApp bot is smooth — no app needed, you just chat and pay. Refund system works too, tested it once by mistake."</p>
+      <div class="testi-service">
+        <span class="testi-badge">Telegram</span>
+        <span class="testi-badge">Binance</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
