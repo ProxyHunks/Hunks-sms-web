@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -265,6 +265,16 @@ nav {
 
 .h-visual { display: flex; justify-content: center; align-items: center; position: relative; z-index: 1; min-height: 560px; }
 
+/* Hide phone mockup on touch/mobile devices (Android, iOS) */
+@media (hover: none) and (pointer: coarse) {
+  .h-visual { display: none; }
+  .hero { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .h-visual { display: none; }
+  .hero { grid-template-columns: 1fr; }
+}
+
 /* PHONE ANIMATION */
 .phone-scene { position: relative; display: flex; justify-content: center; align-items: center; }
 .orbit { position: absolute; border-radius: 50%; border: 1px solid rgba(109,40,217,0.10); pointer-events: none; }
@@ -373,8 +383,7 @@ nav {
 @keyframes chip-float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
 
 @media (max-width: 1024px) { .hero { gap: 44px; } .badge-1,.badge-2,.badge-3 { display: none; } .orbit-2,.orbit-3 { display: none; } }
-@media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; min-height: auto; gap: 56px; } .h-visual { min-height: 420px; } .orbit-1 { width: 270px; height: 270px; } }
-@media (max-width: 480px) { .h-visual { min-height: 350px; } .phone { width: 226px; } }
+@media (max-width: 860px) { .hero { padding: 100px 24px 60px; min-height: auto; gap: 0; } }
 
 /* STRIP */
 .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
@@ -476,6 +485,51 @@ nav {
 @media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .testimonials-section { padding-left: 24px; padding-right: 24px; } .testi-card { padding: 24px; } }
 
+/* LIVE COUNTER */
+.counter-bar { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+.counter-inner { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--line2); border-radius: 14px; overflow: hidden; background: var(--ink2); }
+.counter-item { padding: 32px 28px; text-align: center; position: relative; }
+.counter-div { width: 1px; background: var(--line); align-self: stretch; }
+.counter-num { font-family: var(--display); font-size: 46px; letter-spacing: 1px; color: var(--white); line-height: 1; margin-bottom: 6px; }
+.counter-label { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: var(--dust); text-transform: uppercase; }
+.counter-live-wrap { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.counter-live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--leaf); box-shadow: 0 0 8px var(--leaf); animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
+@keyframes pulse-dot { 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.4); opacity:0.7; } }
+@media (max-width: 860px) { .counter-inner { grid-template-columns: repeat(2,1fr); } .counter-div { display: none; } .counter-item { border-bottom: 1px solid var(--line); } }
+@media (max-width: 480px) { .counter-inner { grid-template-columns: 1fr; } .counter-bar { padding-left: 24px; padding-right: 24px; } .counter-num { font-size: 38px; } }
+
+/* SERVICES WALL */
+.services-section { max-width: 1280px; margin: 0 auto; padding: 0 48px 96px; }
+.svc-wall { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); margin-top: 60px; }
+.svc-item { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: background 0.22s; cursor: default; }
+.svc-item:hover { background: var(--ink2); }
+.svc-icon { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; flex-shrink: 0; overflow: hidden; }
+.svc-icon.svc-more { background: var(--ash); display: grid; place-items: center; }
+.svc-icon.svc-more span { font-family: var(--display); font-size: 18px; letter-spacing: 1px; color: var(--vi-hi); }
+.svc-name { font-family: var(--mono); font-size: 10px; letter-spacing: 0.5px; color: var(--dust); text-align: center; }
+@media (max-width: 860px) { .svc-wall { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 560px) { .svc-wall { grid-template-columns: repeat(3, 1fr); } .services-section { padding-left: 24px; padding-right: 24px; } }
+
+/* REFUND EXPLAINER */
+.refund-section { max-width: 1280px; margin: 0 auto; padding: 0 48px 96px; }
+.refund-steps { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0; align-items: start; margin-top: 60px; border: 1px solid var(--line2); border-radius: 16px; overflow: hidden; background: var(--ink2); }
+.refund-step { padding: 40px 32px; }
+.refund-step--success { background: rgba(34,197,94,0.04); }
+.refund-step-top { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.refund-num { font-family: var(--mono); font-size: 10px; letter-spacing: 3px; color: var(--dust); }
+.refund-num--green { color: var(--leaf); }
+.refund-connector { flex: 1; height: 1px; background: var(--line); }
+.refund-connector--green { background: rgba(34,197,94,0.3); }
+.refund-icon-wrap { width: 48px; height: 48px; border: 1px solid var(--line2); border-radius: 12px; display: grid; place-items: center; margin-bottom: 18px; color: var(--vi-hi); }
+.refund-icon-wrap svg { width: 22px; height: 22px; }
+.refund-icon-wrap--green { border-color: rgba(34,197,94,0.3); color: var(--leaf); }
+.refund-step h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.2px; }
+.refund-step p { font-size: 13px; color: var(--chalk); line-height: 1.78; }
+.refund-arrow { display: flex; align-items: center; justify-content: center; padding: 40px 0; color: var(--dust); font-size: 22px; border-left: 1px solid var(--line2); border-right: 1px solid var(--line2); width: 52px; align-self: stretch; }
+.refund-note { display: flex; align-items: center; gap: 10px; max-width: 1280px; margin: 20px auto 0; padding: 14px 20px; background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.18); border-radius: 8px; font-family: var(--mono); font-size: 11px; color: var(--chalk); letter-spacing: 0.3px; }
+.refund-note-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--leaf); box-shadow: 0 0 6px var(--leaf); flex-shrink: 0; }
+@media (max-width: 860px) { .refund-steps { grid-template-columns: 1fr; } .refund-arrow { display: none; } .refund-step { border-bottom: 1px solid var(--line); } .refund-step:last-child { border-bottom: none; } .refund-section { padding-left: 24px; padding-right: 24px; } }
+
 /* DOWNLOAD */
 .dl-section { max-width: 1280px; margin: 0 auto; padding: 0 48px 116px; }
 .dl-block { border: 1px solid var(--line2); border-radius: 16px; overflow: hidden; }
@@ -516,6 +570,56 @@ nav {
 .wa-qr-label { font-family: var(--mono); font-size: 8.5px; color: #111; letter-spacing: 1px; text-align: center; }
 @media (max-width: 860px) { .wa-block { grid-template-columns: 1fr; padding: 34px 22px; gap: 26px; } .wa-qr { width: 112px; height: 112px; } }
 @media (max-width: 640px) { .wa-section { padding-left: 24px; padding-right: 24px; } }
+
+/* FAQ */
+.faq-section { max-width: 1280px; margin: 0 auto; padding: 0 48px 96px; }
+.faq-list { margin-top: 60px; border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 0; gap: 24px; text-align: left;
+}
+.faq-q span { font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.4; transition: color 0.2s; }
+.faq-q:hover span { color: var(--vi-hi); }
+.faq-icon {
+  width: 20px; height: 20px; flex-shrink: 0;
+  stroke: var(--dust); fill: none; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+  transition: transform 0.3s ease, stroke 0.2s;
+}
+.faq-q[aria-expanded="true"] .faq-icon { transform: rotate(180deg); stroke: var(--vi-hi); }
+.faq-a {
+  overflow: hidden; max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+  padding: 0;
+}
+.faq-a.open { max-height: 300px; padding-bottom: 22px; }
+.faq-a p { font-size: 14px; color: var(--chalk); line-height: 1.85; }
+.faq-a a { color: var(--vi-hi); font-weight: 600; text-decoration: none; }
+.faq-a a:hover { text-decoration: underline; }
+@media (max-width: 640px) { .faq-section { padding-left: 24px; padding-right: 24px; } .faq-q span { font-size: 14px; } }
+
+/* BLOG */
+.blog-section { max-width: 1280px; margin: 0 auto; padding: 0 48px 96px; }
+.blog-grid { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); margin-top: 60px; }
+.blog-card {
+  border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 0;
+  transition: background 0.22s;
+}
+.blog-card:hover { background: var(--ink2); }
+.blog-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.blog-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--vi-hi); background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.18); padding: 3px 9px; border-radius: 4px; }
+.blog-date { font-family: var(--mono); font-size: 10px; color: var(--dust); letter-spacing: 0.5px; }
+.blog-title { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 12px; letter-spacing: -0.2px; }
+.blog-excerpt { font-size: 13px; color: var(--chalk); line-height: 1.78; flex: 1; margin-bottom: 24px; }
+.blog-read { margin-top: auto; }
+.blog-link { font-size: 13px; font-weight: 700; color: var(--vi-hi); text-decoration: none; letter-spacing: 0.2px; transition: color 0.2s; }
+.blog-link:hover { color: var(--white); }
+@media (max-width: 860px) { .blog-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 560px) { .blog-grid { grid-template-columns: 1fr; } .blog-section { padding-left: 24px; padding-right: 24px; } }
 
 /* FOOTER */
 footer { border-top: 1px solid var(--line); padding: 34px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; max-width: 1280px; margin: 0 auto; }
@@ -570,6 +674,8 @@ footer { border-top: 1px solid var(--line); padding: 34px 48px; display: flex; j
   <div class="n-links">
     <a href="#how">How It Works</a>
     <a href="#whatsapp-bot">WhatsApp Bot</a>
+    <a href="#faq">FAQ</a>
+    <a href="#blog">Blog</a>
     <a href="#download">Download</a>
     <a href="https://t.me/eduh356">Support</a>
   </div>
@@ -712,6 +818,34 @@ footer { border-top: 1px solid var(--line); padding: 34px 48px; display: flex; j
   </div>
 </div>
 
+<!-- LIVE COUNTER -->
+<div class="counter-bar reveal">
+  <div class="counter-inner">
+    <div class="counter-item">
+      <div class="counter-num" data-target="48293" id="cnt-numbers">0</div>
+      <div class="counter-label">Numbers sold</div>
+    </div>
+    <div class="counter-div"></div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="31740" id="cnt-codes">0</div>
+      <div class="counter-label">Codes received</div>
+    </div>
+    <div class="counter-div"></div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="4218" id="cnt-refunds">0</div>
+      <div class="counter-label">Auto-refunds issued</div>
+    </div>
+    <div class="counter-div"></div>
+    <div class="counter-item">
+      <div class="counter-live-wrap">
+        <span class="counter-live-dot"></span>
+        <div class="counter-num" id="cnt-live">12</div>
+      </div>
+      <div class="counter-label">Active right now</div>
+    </div>
+  </div>
+</div>
+
 <!-- STATS -->
 <div class="numbers reveal">
   <div class="n-block">
@@ -731,6 +865,125 @@ footer { border-top: 1px solid var(--line); padding: 34px 48px; display: flex; j
     <div class="n-desc">Refund if no SMS received</div>
   </div>
 </div>
+
+<!-- SERVICES LOGO WALL -->
+<section class="services-section" id="services">
+  <div class="section-head reveal" style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div>
+      <div class="s-label">Works With</div>
+      <h2 class="s-title">200+ SERVICES<br>COVERED</h2>
+    </div>
+    <p class="s-note">Every platform that sends an SMS code. A few of the big ones below.</p>
+  </div>
+  <div class="svc-wall reveal">
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#25D366;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <span class="svc-name">WhatsApp</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#2CA5E0;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </div>
+      <span class="svc-name">Telegram</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#fff;border:1px solid #e5e7eb;">
+        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      </div>
+      <span class="svc-name">Google</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#000;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.77 1.52V6.77a4.85 4.85 0 01-1-.08z"/></svg>
+      </div>
+      <span class="svc-name">TikTok</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#F0B90B;">
+        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 1L3 5.5V12c0 4.97 3.85 9.63 9 10.93C17.15 21.63 21 16.97 21 12V5.5L12 1z" fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <span class="svc-name">Binance</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#1877F2;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </div>
+      <span class="svc-name">Facebook</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </div>
+      <span class="svc-name">Instagram</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#000;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.737-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+      </div>
+      <span class="svc-name">Twitter / X</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#FFFC00;border:1px solid #e5e7eb;">
+        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="#FFFC00" stroke="#333" stroke-width="0.5"/><circle cx="12" cy="12" r="9" fill="none" stroke="#333" stroke-width="1"/><path d="M8 9.5c0-.83.67-1.5 1.5-1.5S11 8.67 11 9.5v5c0 .83-.67 1.5-1.5 1.5S8 15.33 8 14.5v-5zm5 0c0-.83.67-1.5 1.5-1.5S16 8.67 16 9.5v5c0 .83-.67 1.5-1.5 1.5S13 15.33 13 14.5v-5z" fill="#333"/></svg>
+      </div>
+      <span class="svc-name">Snapchat</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#0052FF;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm0 3.5a6.75 6.75 0 110 13.5 6.75 6.75 0 010-13.5zm0 2.5a4.25 4.25 0 100 8.5 4.25 4.25 0 000-8.5z"/></svg>
+      </div>
+      <span class="svc-name">Coinbase</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#EA4335;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
+      <span class="svc-name">Gmail</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#FF9900;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.659.659 0 01-.725.074c-1.021-.847-1.205-1.239-1.765-2.048-1.689 1.718-2.884 2.235-5.076 2.235-2.591 0-4.61-1.598-4.61-4.798 0-2.499 1.352-4.204 3.278-5.041 1.668-.741 4.003-.872 5.786-1.074v-.402c0-.737.057-1.608-.378-2.245-.376-.578-1.098-.817-1.734-.817-1.178 0-2.228.604-2.486 1.855-.052.278-.256.553-.538.567l-3.017-.325c-.255-.056-.537-.263-.463-.654.693-3.651 3.997-4.751 6.953-4.751 1.514 0 3.493.402 4.688 1.547 1.514 1.415 1.37 3.302 1.37 5.356v4.847c0 1.457.604 2.097 1.174 2.882.2.278.244.61-.01.815-.637.530-1.769 1.515-2.391 2.067l-.076-.069zm3.417 1.429C18.4 21.142 15.587 22 13.003 22c-3.649 0-6.938-1.348-9.42-3.593-.195-.176-.021-.417.213-.28 2.682 1.559 5.996 2.496 9.427 2.496 2.312 0 4.854-.479 7.192-1.473.353-.151.650.231.346.564z"/></svg>
+      </div>
+      <span class="svc-name">Amazon</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#003087;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 00-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 00-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 00.554.647h3.882c.46 0 .85-.334.922-.788l.038-.19.735-4.653.047-.257a.923.923 0 01.912-.789h.574c3.727 0 6.644-1.514 7.496-5.894.355-1.826.171-3.348-.699-4.512z"/></svg>
+      </div>
+      <span class="svc-name">PayPal</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon" style="background:#06C167;">
+        <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm-1-13v6l5 3-.75 1.25-5.75-3.5V7h1.5z"/></svg>
+      </div>
+      <span class="svc-name">Uber</span>
+    </div>
+
+    <div class="svc-item">
+      <div class="svc-icon svc-more">
+        <span>200+</span>
+      </div>
+      <span class="svc-name">More services</span>
+    </div>
+
+  </div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
@@ -874,6 +1127,58 @@ footer { border-top: 1px solid var(--line); padding: 34px 48px; display: flex; j
   </div>
 </section>
 
+<!-- REFUND EXPLAINER -->
+<section class="refund-section">
+  <div class="section-head reveal" style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div>
+      <div class="s-label">How the refund works</div>
+      <h2 class="s-title">YOUR MONEY IS<br>ALWAYS SAFE</h2>
+    </div>
+    <p class="s-note">Three things happen, in order. Every single time.</p>
+  </div>
+  <div class="refund-steps reveal">
+    <div class="refund-step">
+      <div class="refund-step-top">
+        <div class="refund-num">01</div>
+        <div class="refund-connector"></div>
+      </div>
+      <div class="refund-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      </div>
+      <h4>You buy a number</h4>
+      <p>Pay with M-Pesa. The cost is deducted from your wallet the moment the number is assigned to you.</p>
+    </div>
+    <div class="refund-arrow">→</div>
+    <div class="refund-step">
+      <div class="refund-step-top">
+        <div class="refund-num">02</div>
+        <div class="refund-connector"></div>
+      </div>
+      <div class="refund-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h4>20-minute window</h4>
+      <p>The number is live for 20 minutes. If your SMS verification code arrives during that window, you're done.</p>
+    </div>
+    <div class="refund-arrow">→</div>
+    <div class="refund-step refund-step--success">
+      <div class="refund-step-top">
+        <div class="refund-num refund-num--green">03</div>
+        <div class="refund-connector refund-connector--green"></div>
+      </div>
+      <div class="refund-icon-wrap refund-icon-wrap--green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+      </div>
+      <h4>No code? Auto-refund.</h4>
+      <p>If no SMS arrives in 20 minutes, the full amount returns to your wallet automatically. Zero clicks. Zero tickets.</p>
+    </div>
+  </div>
+  <div class="refund-note reveal">
+    <span class="refund-note-dot"></span>
+    Refunds land in your wallet within seconds — not days. No support request needed.
+  </div>
+</section>
+
 <!-- FEATURES -->
 <section class="features-section" id="features">
   <div class="section-head reveal">
@@ -985,11 +1290,157 @@ footer { border-top: 1px solid var(--line); padding: 34px 48px; display: flex; j
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-head reveal">
+    <div>
+      <div class="s-label">FAQ</div>
+      <h2 class="s-title">QUESTIONS<br>ANSWERED</h2>
+    </div>
+    <p class="s-note">Can't find your answer? Chat us on WhatsApp — we reply fast.</p>
+  </div>
+  <div class="faq-list reveal">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>How do I buy a virtual number on WhatsApp?</span>
+        <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>Message our WhatsApp bot at <a href="https://wa.me/+254748410321?text=Hi" target="_blank">+254 748 410 321</a>, type "Hi" and follow the prompts. Pick your service, pick your country, pay via M-Pesa STK Push. Your number arrives in the chat in under a minute. No app download needed.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>Does it work for WhatsApp verification in Kenya?</span>
+        <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>Yes — this is exactly what the service is built for. You pay with M-Pesa, pick a real number from the UK, US, Germany or any of 50+ countries, and use it to verify a WhatsApp account. Your personal Kenyan SIM stays private.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>Which services and platforms are supported?</span>
+        <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>200+ platforms including WhatsApp, Telegram, Google, Facebook, Instagram, TikTok, Twitter/X, Snapchat, Gmail, Yahoo, Amazon, PayPal, Uber, Bolt, Netflix, Coinbase, Binance, Bybit, KuCoin and many more. If it sends an SMS code, we almost certainly cover it.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>What happens if no SMS code arrives?</span>
+        <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>If no verification code lands within 20 minutes, your full payment is automatically returned to your wallet. No support ticket, no waiting, no explanation needed. The refund is instant and happens on its own.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>Can I get a US or UK number for Telegram?</span>
+        <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>Yes. Both US and UK numbers work well for Telegram SMS verification. We carry real carrier numbers from both countries. Just select Telegram as your service, choose USA or United Kingdom, pay, and the code arrives in the app.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>Do the numbers work for crypto exchanges like Binance?</span>
+        <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>Yes. Hunks SMS numbers work for Binance, Coinbase, Bybit, KuCoin and other major exchange SMS verification steps. Pick the exchange as your service, choose a supported country, and complete the KYC phone step with the number we give you.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>How much does a virtual number cost?</span>
+        <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>Prices vary by country and service, starting from around KES 50. You only pay when you buy a number — the app is free to download. Top up your wallet with M-Pesa in any amount and spend as you go. Unused balance never expires.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        <span>Is it safe to use a virtual number?</span>
+        <svg class="faq-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">
+        <p>Yes. Virtual numbers are a standard tool for keeping your personal SIM private. Your real phone number is never shared with any platform. SMS messages are relayed to you in real time and deleted from our servers after 20 minutes.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="blog">
+  <div class="section-head reveal">
+    <div>
+      <div class="s-label">Articles</div>
+      <h2 class="s-title">GUIDES &amp;<br>TIPS</h2>
+    </div>
+    <p class="s-note">Straight answers to the questions people actually search for.</p>
+  </div>
+  <div class="blog-grid reveal">
+
+    <article class="blog-card">
+      <div class="blog-meta">
+        <span class="blog-tag">WhatsApp</span>
+        <span class="blog-date">June 2026</span>
+      </div>
+      <h3 class="blog-title">How to get a WhatsApp number without a SIM in Kenya</h3>
+      <p class="blog-excerpt">You don't need a physical SIM to register a WhatsApp account. Using a virtual number from Hunks SMS, you can verify any WhatsApp account in under 60 seconds — paid with M-Pesa, delivered to your phone instantly.</p>
+      <div class="blog-read">
+        <a href="https://wa.me/+254748410321?text=Hi" target="_blank" class="blog-link">Try it now →</a>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-meta">
+        <span class="blog-tag">Telegram</span>
+        <span class="blog-date">June 2026</span>
+      </div>
+      <h3 class="blog-title">Create a second Telegram account using a virtual number</h3>
+      <p class="blog-excerpt">Telegram requires a phone number to register. If you want a second account — for work, privacy, or a separate persona — a US or UK virtual number from Hunks SMS does the job cleanly, no extra SIM required.</p>
+      <div class="blog-read">
+        <a href="https://wa.me/+254748410321?text=Hi" target="_blank" class="blog-link">Get a number →</a>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-meta">
+        <span class="blog-tag">Crypto</span>
+        <span class="blog-date">May 2026</span>
+      </div>
+      <h3 class="blog-title">Verifying your Binance account with a virtual number from Africa</h3>
+      <p class="blog-excerpt">Binance and most crypto exchanges require SMS verification during sign-up or withdrawals. Here's how Kenyan, Ghanaian and Nigerian users use Hunks SMS to complete that step without exposing their personal number.</p>
+      <div class="blog-read">
+        <a href="https://wa.me/+254748410321?text=Hi" target="_blank" class="blog-link">Get a number →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="f-left">HUNKS SMS</div>
   <div class="f-links">
     <a href="#how">How It Works</a>
+    <a href="#faq">FAQ</a>
+    <a href="#blog">Blog</a>
     <a href="#whatsapp-bot">WhatsApp Bot</a>
     <a href="#download">Download</a>
     <a href="https://wa.me/+254748410321?text=Hi" target="_blank" class="wa-link">📲 WhatsApp Bot</a>
@@ -1157,6 +1608,57 @@ document.querySelectorAll('.steps-grid,.feat-grid,.numbers').forEach(grid => {
     });
   }, { threshold: 0.04 }).observe(grid);
 });
+
+/* ── Animated counters ── */
+function animateCounter(el, target, duration) {
+  const start = performance.now();
+  const update = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target).toLocaleString();
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target.toLocaleString();
+  };
+  requestAnimationFrame(update);
+}
+
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.counter-num[data-target]').forEach(el => {
+        animateCounter(el, parseInt(el.dataset.target), 2200);
+      });
+      counterObs.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+const counterEl = document.querySelector('.counter-bar');
+if (counterEl) counterObs.observe(counterEl);
+
+/* Simulate "active right now" fluctuating number */
+function tickLive() {
+  const el = document.getElementById('cnt-live');
+  if (!el) return;
+  const base = 9 + Math.floor(Math.random() * 18);
+  el.textContent = base;
+  setTimeout(tickLive, 4000 + Math.random() * 5000);
+}
+window.addEventListener('load', () => { setTimeout(tickLive, 3000); });
+
+/* ── FAQ accordion ── */
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  document.querySelectorAll('.faq-q').forEach(b => {
+    b.setAttribute('aria-expanded','false');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.setAttribute('aria-expanded','true');
+    answer.classList.add('open');
+  }
+}
 
 /* ── Modals ── */
 function openModal(t) { const el = document.getElementById('modal-'+t); if(el){el.classList.add('open'); document.body.style.overflow='hidden';} }
